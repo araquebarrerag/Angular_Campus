@@ -1,0 +1,97 @@
+<div *ngIf="!load">
+    <div class="spinner center">
+        <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+    </div>
+    <div class="center">
+        <p style="font-size: 30px;">Cargando Datos</p>
+    </div>
+</div>
+<div *ngIf="load">
+    <form [formGroup]="listaProductosBusquedaForm">
+        <div class="col s12 card no-margin hoverable margin-top color-background min-size">
+            <div class="col s12 header center margin-top">
+                <h4>
+                    Lista de Productos
+                </h4>
+            </div>
+            <div class="col s12">
+                <br>
+            </div>
+            <div class="col s12 light-blue accent-3">
+                <div class="col s12">
+                    <br>
+                </div>
+                <div class="col s1">
+                    <mat-form-field>
+                        <mat-label>
+                            <mat-icon fontIcon="search"></mat-icon>
+                            Disponibilidad
+                        </mat-label>
+                        <mat-select
+                            formControlName="selectedDisponibilidad"
+                            (selectionChange)="findDisponibilidad()"
+                        >
+                            <mat-option [value]="">Todos</mat-option>
+                            <mat-option [value]="1">Disponible</mat-option>
+                            <mat-option [value]="2">No Disponible</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col s2"></div>
+                <div class="col s8" style="margin-top: -15px;">
+                    <div style="min-width: 150px;max-width: 500px;width: 100%;">
+                        <mat-form-field style="width: 100%; ">
+                            <mat-label>
+                                <mat-icon fontIcon="search"></mat-icon>
+                                Categoría
+                            </mat-label>
+                            <input type="text"
+                                matInput
+                                [formControl]="myControl"
+                                [matAutocomplete]="auto"
+                                (input)="findCategoria()"
+                                (focus)="findCategoria()"
+                            >
+                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            @for (option of filteredOptions | async; track option) {
+                                <mat-option [value]="option">{{option}}</mat-option>
+                            }
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 header center margin-top light-blue accent-3">
+                <table class="centered">
+                    <thead class="light-blue accent-3">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Categoría</th>
+                            <th>Disponibilidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="lime lighten-3">
+                        <tr *ngFor="let producto of productos">
+                            <td>{{producto.nombre}}</td>
+                            <td>{{producto.descripcion ? producto.descripcion : 'N/A'}}</td>
+                            <td>{{producto.precio}}</td>
+                            <td>{{producto.categoria ? producto.categoria : 'N/A'}}</td>
+                            <td>{{producto.disponibilidad ? 'Disponible' : 'No Disponible'}}</td>
+                            <td>
+                                <a class="waves-effect waves-light red btn" style="margin-left: 5px;"><i class="material-icons center" (click)="delete(producto)">delete</i></a>
+                                <a href="/editar?id={{producto.id}}" class="waves-effect waves-light green btn" style="margin-left: 5px;"><i class="material-icons center">edit</i></a>                        
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+            <div class="col s12 light-blue accent-3">
+                <br>
+            </div>
+        </div>
+    </form>
+</div>

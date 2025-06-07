@@ -1,0 +1,73 @@
+
+<div *ngIf="tipo == 'error'">
+    <div class="center">
+        <br>
+        <i class="medium material-icons red-text text-darken-1">error_outline</i>        
+    </div>
+    <mat-dialog-content>
+        <div class="row">
+            <div class="col s12">
+                <div class="col s2"></div>
+                <div *ngIf="dato == 'nombre'" class="col s8 center">
+                    <p style="font-size: 20px;">Ingrese un nombre</p>
+                </div>
+                <div *ngIf="dato == 'precio'" class="col s8 center">
+                    <p style="font-size: 20px;">Ingrese un numero positivo en la cantidad</p>
+                </div>
+                <div *ngIf="dato == 'todos'" class="col s8 center">
+                    <p style="font-size: 20px;">Ingrese un nombre y un numero positivo en la cantidad</p>
+                </div>
+            </div>
+            <div class="col s12 center">
+                <a class="waves-effect waves-light btn" (click)="cerrar()">Aceptar</a>
+            </div>
+        </div>
+    </mat-dialog-content>
+</div>
+
+<div *ngIf="tipo == 'confirmacion'">
+    <div class="center">
+        <br>
+        <i class="medium material-icons green-text text-darken-1">check_circle</i>        
+    </div>
+    <mat-dialog-content>
+        <div class="row">
+            <div class="col s12">
+                <div class="col s2"></div>
+                <div *ngIf="dato == 'creacion'" class="col s8 center">
+                    <p style="font-size: 20px;">Creacion Exitosa</p>
+                </div>
+                <div *ngIf="dato == 'eliminar'" class="col s8 center">
+                    <p style="font-size: 20px;">Desea eliminar el producto: {{producto}} ?</p>
+                </div>
+            </div>
+            <div class="col s12 center" *ngIf="dato == 'creacion'">
+                <a class="waves-effect waves-light btn" (click)="cerrar()">Aceptar</a>
+            </div>
+            <div class="col s12 center" *ngIf="dato == 'eliminar'">
+                <a class="waves-effect waves-light btn green" (click)="confirmar(true)">Si</a>
+                <a class="waves-effect waves-light btn red" style="margin-left: 20px;" (click)="confirmar(false)">No</a>
+            </div>
+        </div>
+    </mat-dialog-content>
+</div>
+
+<div *ngIf="tipo == 'edicion'">
+    <div class="center">
+        <br>
+        <i class="medium material-icons green-text text-darken-1">check_circle</i>        
+    </div>
+    <mat-dialog-content>
+        <div class="row">
+            <div class="col s12">
+                <div class="col s2"></div>
+                <div class="col s8 center">
+                    <p style="font-size: 20px;">Actualización Exitosa del producto: {{producto}}</p>
+                </div>
+            </div>
+            <div class="col s12 center">
+                <a class="waves-effect waves-light btn" (click)="cerrar()">Aceptar</a>
+            </div>
+        </div>
+    </mat-dialog-content>
+</div>

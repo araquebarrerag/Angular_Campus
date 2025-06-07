@@ -1,0 +1,51 @@
+.no-margin {
+    margin: 0;
+    padding: 0;
+}
+
+.color-principal {
+    margin: 0;
+    padding: 0;
+    background-color: #006064;
+    color: azure;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #eceff1;
+}
+
+.color-background {
+    background-color: #eceff1;
+}
+
+.size-one {
+    padding-top: 25px;
+    height: 90px;
+}
+
+.margin-top {
+    margin-top: 25px;
+}
+
+.no-margin {
+    margin: 0;
+    padding: 0;
+}
+
+.min-size {
+    min-height: 100vh;
+}
+
+.item {
+    border-style: solid;
+    border-width: 0.1px;
+    border-color: #006064;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 700px) {
+    .size-one {
+        padding-top: 15px;
+        height: 45px;
+    }
+}

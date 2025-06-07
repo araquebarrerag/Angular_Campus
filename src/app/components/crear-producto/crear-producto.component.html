@@ -1,0 +1,74 @@
+<form [formGroup]="productoForm">
+    <div class="col s12 card no-margin hoverable margin-top color-background min-size">
+        <div class="col s12 header center margin-top">
+            <h4>
+                Crear Producto
+            </h4>
+        </div>
+        <div class="col s12">
+            <br>
+            <br>
+        </div>
+        <div class="col s12 margin-top">
+            <div class="col s1"></div>
+            <div class="col s4 item">
+                <div class="col m4 s12 no-margin question color-principal size-one" style="text-align:center">
+                    Nombre
+                </div>
+                <div class="input-field col s12 m8" style="margin-top: -15px;">
+                    <input type="text" class="validate" placeholder="Nombre" formControlName="nombre" required>
+                </div>
+            </div>
+            <div class="col s6 item">
+                <div class="col m4 s12 no-margin question color-principal size-one" style="text-align:center">
+                    Descripción
+                </div>
+                <div class="input-field col s12 m8" style="margin-top: -15px;">
+                    <input type="text" class="validate" placeholder="Descripción" formControlName="descripcion">
+                </div>
+            </div>
+        </div>
+        <div class="col s12 margin-top">
+            <div class="col s1"></div>
+            <div class="col s4 item">
+                <div class="col m4 s12 no-margin question color-principal size-one" style="text-align:center">
+                    Precio
+                </div>
+                <div class="input-field col s12 m8" style="margin-top: -15px;">
+                    <input type="number" class="validate" placeholder="Precio" formControlName="precio" min="1" required>
+                </div>
+            </div>
+            <div class="col s6 item">
+                <div class="col m4 s12 no-margin question color-principal size-one" style="text-align:center">
+                    Categoría
+                </div>
+                <div class="input-field col s12 m8" style="margin-top: -15px;">
+                    <input type="text" class="validate" placeholder="Categoria" formControlName="categoria">
+                </div>
+            </div>
+        </div>
+        <div class="col s12 margin-top" style="margin-top: 20px;">
+            <div class="col s4"></div>
+            <div class="col s4 item">
+                <div class="col m4 s12 no-margin question color-principal size-one" style="text-align:center">
+                    Disponibilidad
+                </div>
+                <div class="input-field col s12 m8" style="margin-top: -2px;">
+                    <div class="switch">
+                        <label>
+                        No Disponible
+                        <input type="checkbox" formControlName="disponibilidad">
+                        <span class="lever"></span>
+                        Disponible
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 center margin-top" style="margin-top: 20px; margin-bottom: 20px;">
+            <button class="btn waves-effect waves-light" type="submit" name="action" (click)="guardar()">Guardar
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
+</form>
