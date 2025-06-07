@@ -28,7 +28,8 @@
 <div *ngIf="tipo == 'confirmacion'">
     <div class="center">
         <br>
-        <i class="medium material-icons green-text text-darken-1">check_circle</i>        
+        <i *ngIf="dato == 'creacion'" class="medium material-icons green-text text-darken-1">check_circle</i>       
+        <i *ngIf="dato == 'eliminar'" class="medium material-icons red-text text-darken-1">error_outline</i>     
     </div>
     <mat-dialog-content>
         <div class="row">
